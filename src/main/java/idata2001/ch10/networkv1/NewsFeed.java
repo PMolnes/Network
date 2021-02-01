@@ -1,0 +1,94 @@
+package idata2001.ch10.networkv1;
+
+import java.util.ArrayList;
+
+/**
+ * The NewsFeed class stores news posts for the news feed in a social network 
+ * application.
+ * 
+ * Display of the posts is currently simulated by printing the details to the
+ * terminal. (Later, this should display in a browser.)
+ * 
+ * This version does not save the data to disk, and it does not provide any
+ * search or ordering functions.
+ * 
+ * @author Michael Kölling and David J. Barnes
+ * @version 0.1
+ */
+public class NewsFeed
+{
+    private ArrayList<MessagePost> messages;
+    private ArrayList<PhotoPost> photos;
+    private ArrayList<EventPost> events;
+
+    /**
+     * Construct an empty news feed.
+     */
+    public NewsFeed()
+    {
+        messages = new ArrayList<>();
+        photos = new ArrayList<>();
+        events = new ArrayList<>();
+    }
+
+    /**
+     * Add a text post to the news feed.
+     *
+     * @param message the text to be added.
+     */
+    public void addMessagePost(MessagePost message)
+    {
+        messages.add(message);
+    }
+
+    /**
+     * Add a photo post to the news feed.
+     * 
+     * @param photo  The photo post to be added.
+     */
+    public void addPhotoPost(PhotoPost photo)
+    {
+        photos.add(photo);
+    }
+
+    /**
+     * Add a event post to the news feed.
+     *
+     * @param event The event post to be added.
+     */
+    public void addEventPost(EventPost event) { events.add(event); }
+
+    /**
+     * Show the news feed. Currently: print the news feed details to the
+     * terminal. (To do: replace this later with display in web browser.)
+     */
+    public void show()
+    {
+        // display all text posts
+        for(MessagePost message : messages) {
+            message.display();
+            System.out.println();   // empty line between posts
+        }
+
+        // display all photos
+        for(PhotoPost photo : photos) {
+            photo.display();
+            System.out.println();   // empty line between posts
+        }
+
+        // display all events
+        for(EventPost event : events)
+        {
+            event.display();
+            System.out.println(); // empty line between posts
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        NewsFeed newsFeed = new NewsFeed();
+        EventPost eventPost = new EventPost("Petter Molnes", "Shared a post");
+        newsFeed.addEventPost(eventPost);
+        newsFeed.show();
+    }
+}
