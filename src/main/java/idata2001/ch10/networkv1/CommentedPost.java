@@ -48,6 +48,7 @@ public class CommentedPost extends Post
      * (Currently: Print to the text terminal. This is simulating display
      * in a web browser for now.)
      */
+    @Override
     public void display()
     {
         System.out.println(getUsername());

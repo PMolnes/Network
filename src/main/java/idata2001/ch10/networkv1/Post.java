@@ -50,5 +50,10 @@ public class Post
     {
         return username;
     }
+
+    public void display()
+    {
+
+    }
 }
 

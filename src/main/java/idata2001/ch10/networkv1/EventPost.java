@@ -10,6 +10,7 @@ public class EventPost extends Post
         this.eventType = eventType;
     }
 
+    @Override
     public void display()
     {
         System.out.println(getUsername());
